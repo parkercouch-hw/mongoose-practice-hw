@@ -1,0 +1,16 @@
+extends ../layout.pug
+
+block content
+  h1= museum.name
+  div
+    img(src= museum.image, alt="alt")
+  h3 Description
+  p= `${museum.name} is located in ${museum.city}, ${museum.country}`
+
+  if museum.pieces.length > 0
+    h3 Famous Pieces
+    each piece in museum.pieces
+      div
+        a(href="/pieces/" + piece.id)= piece.name 
+  else
+    h3 ______

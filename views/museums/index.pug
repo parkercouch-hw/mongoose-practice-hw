@@ -1,0 +1,7 @@
+extends ../layout.pug
+
+block content
+  h2.text-center Museums List
+  each museum in museums
+    a(href="/museums/" + museum._id)= museum.name
+

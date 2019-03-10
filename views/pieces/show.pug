@@ -1,0 +1,14 @@
+extends ../layout.pug
+
+block content
+  .flex.flex-column
+    h1= piece.name
+
+    if piece.museum
+      h2= piece.museum.name 
+
+    if piece.creator.firstname && piece.creator.lastname
+      h2= piece.creator.lastname + ", " + piece.creator.firstname
+
+    h4= piece.originCountry
+    img(src= piece.image, alt= piece.name)

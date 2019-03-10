@@ -1,0 +1,9 @@
+extends ../layout.pug
+
+block content
+  <h2 class="text-center">Pieces List</h2>
+
+  each piece in pieces
+    p
+      a(href="/pieces/" + piece._id)= piece.name
+      = ` (${piece.museum.name} - ${piece.museum.city})`

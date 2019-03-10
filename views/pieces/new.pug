@@ -1,0 +1,38 @@
+extends ../layout.pug
+
+block content
+  h2.text-center.text-primary Add a New Piece
+
+  form(action="/pieces" method="POST")
+    label(for="name") Name:
+    input#name.form-control(type="text", name="name", required)
+
+    label(for="originCountry") Origin Country:
+    input#country.form-control(type="text", name="originCountry", required)
+
+    //- TODO: MUSEUM
+    label(for="museum") Museum:
+    select#museum.form-control(name="museum")
+      each museum in museums
+        option(value= museum._id)= museum.name
+      option(value= null) None
+
+    label(for="image") Image:
+    input#image.form-control(type="url", name="image", required)
+
+    label(for="creatorFirstName") Creator First Name:
+    input#creatorFirstName.form-control(type="text", name="creatorFirstName", required)
+
+    label(for="creatorLastName") Creator Last Name:
+    input#creatorLastName.form-control(type="text", name="creatorLastName", required)
+
+    label(for="creatorBirthYear") Creator Birth Year:
+    input#creatorBirthYear.form-control(type="number", name="creatorBirthYear", required)
+
+    label(for="creatorDeathYear") Creator Death Year:
+    input#creatorDeathYear.form-control(type="number", name="creatorDeathYear", required)
+
+    label(for="creatorImage") Creator Image:
+    input#creatorImage.form-control(type="url", name="creatorImage", required)
+
+    input(type="submit", value="Add")
